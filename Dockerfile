@@ -77,9 +77,6 @@ COPY --from=ruby-3.2 /root/.rbenv/versions/3.2.6      /root/.rbenv/versions/3.2.
 COPY --from=ruby-3.3 /root/.rbenv/versions/3.3.6      /root/.rbenv/versions/3.3.6
 COPY --from=ruby-3.4 /root/.rbenv/versions/3.4.0-rc1  /root/.rbenv/versions/3.4.0-rc1
 
-RUN ~/.rbenv/bin/rbenv rehash
-COPY ./app /app
-
 # Probably not working with gems/bundler but who cares
 ENTRYPOINT ["/root/.rbenv/versions/3.3.6/bin/ruby", "/app/lib/cli.rb"]
 CMD ["--help"]

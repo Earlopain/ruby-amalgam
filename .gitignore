@@ -1,0 +1,8 @@
+*
+!/lib
+!/lib/**/*
+!/.gitignore
+!/docker-compose.yml
+!/Dockerfile
+!/LICENSE
+!/README.md
