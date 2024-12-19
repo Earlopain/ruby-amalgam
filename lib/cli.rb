@@ -48,7 +48,7 @@ versions.keys.sort.each do |short_version|
   full_version = versions[short_version]
   result, _status = Open3.capture2e("/root/.rbenv/versions/#{full_version}/bin/ruby", *ruby_options)
   puts <<~TEXT
-    #{short_version.to_s.center(41, "=")}
+    #{full_version.center(41, "=")}
     #{result}
   TEXT
 end
