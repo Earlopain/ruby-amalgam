@@ -1,4 +1,6 @@
 *
+!/.github
+!/.github/**/*
 !/lib
 !/lib/**/*
 !/.gitignore
