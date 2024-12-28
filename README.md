@@ -15,16 +15,6 @@ Usage: docker compose run amalgam [options] [ruby_options]
         --only VERSION
 
 $ docker compose run amalgam --all -ce "def foo(...) super(...) {} end"
-===============1.8.7-p374================
--e:1: syntax error, unexpected tDOT3, expecting ')'
-def foo(...) super(...) {} end
-           ^
-
-===============1.9.3-p551================
--e:1: syntax error, unexpected tDOT3, expecting ')'
-def foo(...) super(...) {} end
-           ^
-
 ===============2.0.0-p648================
 -e:1: syntax error, unexpected ..., expecting ')'
 def foo(...) super(...) {} end
@@ -76,8 +66,8 @@ def foo(...) super(...) {} end
 ==================3.3.6==================
 Syntax OK
 
-================3.4.0-rc1================
-/root/.rbenv/versions/3.4.0-rc1/bin/ruby: -e:1: syntax error found (SyntaxError)
+==================3.4.1==================
+/root/.rbenv/versions/3.4.1/bin/ruby: -e:1: syntax error found (SyntaxError)
 > 1 | def foo(...) super(...) {} end
     |                         ^~ both block arg and actual block given; only one block is allowed
   2 | 

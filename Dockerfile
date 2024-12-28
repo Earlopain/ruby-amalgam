@@ -11,15 +11,7 @@ RUN apt-get update \
 
 ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
 
-FROM build-base AS ruby-1.8
-# p375 is the latest but doesn't build right now https://github.com/rbenv/ruby-build/issues/2478
-# Either way, just using an archive seems preferable
-RUN ~/.rbenv/bin/rbenv install 1.8.7-p374
-
-FROM ruby-1.8 AS ruby-1.9
-RUN ~/.rbenv/bin/rbenv install 1.9.3-p551
-
-FROM ruby-1.9 AS ruby-2.0
+FROM build-base AS ruby-2.0
 RUN ~/.rbenv/bin/rbenv install 2.0.0-p648
 
 FROM ruby-2.0 AS ruby-2.1
