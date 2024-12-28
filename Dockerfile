@@ -56,7 +56,7 @@ FROM ruby-3.2 AS ruby-3.3
 RUN ~/.rbenv/bin/rbenv install 3.3.6
 
 FROM ruby-3.3 AS ruby-3.4
-RUN ~/.rbenv/bin/rbenv install 3.4.0-rc1
+RUN ~/.rbenv/bin/rbenv install 3.4.1
 
 FROM ruby-3.4 AS final
 
