@@ -63,7 +63,7 @@ def foo(...) super(...) {} end
 -e:1: both block arg and actual block given
 -e: compile error (SyntaxError)
 
-==================3.3.6==================
+==================3.3.7=================
 Syntax OK
 
 ==================3.4.1==================

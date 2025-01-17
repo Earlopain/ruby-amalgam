@@ -45,7 +45,7 @@ FROM build-base AS ruby-3.2
 RUN ~/.rbenv/bin/rbenv install 3.2.6
 
 FROM build-base AS ruby-3.3
-RUN ~/.rbenv/bin/rbenv install 3.3.6
+RUN ~/.rbenv/bin/rbenv install 3.3.7
 
 FROM build-base AS ruby-3.4
 RUN ~/.rbenv/bin/rbenv install 3.4.1
@@ -64,9 +64,9 @@ COPY --from=ruby-2.7 /root/.rbenv/versions/2.7.8      /root/.rbenv/versions/2.7.
 COPY --from=ruby-3.0 /root/.rbenv/versions/3.0.7      /root/.rbenv/versions/3.0.7
 COPY --from=ruby-3.1 /root/.rbenv/versions/3.1.6      /root/.rbenv/versions/3.1.6
 COPY --from=ruby-3.2 /root/.rbenv/versions/3.2.6      /root/.rbenv/versions/3.2.6
-COPY --from=ruby-3.3 /root/.rbenv/versions/3.3.6      /root/.rbenv/versions/3.3.6
+COPY --from=ruby-3.3 /root/.rbenv/versions/3.3.7      /root/.rbenv/versions/3.3.7
 COPY --from=ruby-3.4 /root/.rbenv/versions/3.4.1      /root/.rbenv/versions/3.4.1
 
 # Probably not working with gems/bundler but who cares
-ENTRYPOINT ["/root/.rbenv/versions/3.3.6/bin/ruby", "/app/lib/cli.rb"]
+ENTRYPOINT ["/root/.rbenv/versions/3.4.1/bin/ruby", "/app/lib/cli.rb"]
 CMD ["--help"]
