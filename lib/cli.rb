@@ -20,6 +20,8 @@ class OptionParser
   end
 end
 
+ARGV << "--help" if ARGV.empty?
+
 options = {}
 OptionParser.new do |opt|
   opt.banner = "Usage: docker compose run amalgam [options] [ruby_options]"

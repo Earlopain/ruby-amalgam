@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:labs
+
 FROM debian:bookworm-slim AS build-base
 
 RUN apt-get update \
@@ -52,21 +54,19 @@ RUN ~/.rbenv/bin/rbenv install 3.4.1
 
 FROM build-base
 
-COPY --from=ruby-2.0 /root/.rbenv/versions/2.0.0-p648 /root/.rbenv/versions/2.0.0-p648
-COPY --from=ruby-2.1 /root/.rbenv/versions/2.1.10     /root/.rbenv/versions/2.1.10
-COPY --from=ruby-2.2 /root/.rbenv/versions/2.2.10     /root/.rbenv/versions/2.2.10
-COPY --from=ruby-2.2 /root/.rbenv/versions/2.2.10     /root/.rbenv/versions/2.2.10
-COPY --from=ruby-2.3 /root/.rbenv/versions/2.3.8      /root/.rbenv/versions/2.3.8
-COPY --from=ruby-2.4 /root/.rbenv/versions/2.4.10     /root/.rbenv/versions/2.4.10
-COPY --from=ruby-2.5 /root/.rbenv/versions/2.5.9      /root/.rbenv/versions/2.5.9
-COPY --from=ruby-2.6 /root/.rbenv/versions/2.6.10     /root/.rbenv/versions/2.6.10
-COPY --from=ruby-2.7 /root/.rbenv/versions/2.7.8      /root/.rbenv/versions/2.7.8
-COPY --from=ruby-3.0 /root/.rbenv/versions/3.0.7      /root/.rbenv/versions/3.0.7
-COPY --from=ruby-3.1 /root/.rbenv/versions/3.1.6      /root/.rbenv/versions/3.1.6
-COPY --from=ruby-3.2 /root/.rbenv/versions/3.2.7      /root/.rbenv/versions/3.2.7
-COPY --from=ruby-3.3 /root/.rbenv/versions/3.3.7      /root/.rbenv/versions/3.3.7
-COPY --from=ruby-3.4 /root/.rbenv/versions/3.4.1      /root/.rbenv/versions/3.4.1
+COPY --parents --from=ruby-2.0 /root/.rbenv/versions/2.0.* /
+COPY --parents --from=ruby-2.1 /root/.rbenv/versions/2.1.* /
+COPY --parents --from=ruby-2.2 /root/.rbenv/versions/2.2.* /
+COPY --parents --from=ruby-2.3 /root/.rbenv/versions/2.3.* /
+COPY --parents --from=ruby-2.4 /root/.rbenv/versions/2.4.* /
+COPY --parents --from=ruby-2.5 /root/.rbenv/versions/2.5.* /
+COPY --parents --from=ruby-2.6 /root/.rbenv/versions/2.6.* /
+COPY --parents --from=ruby-2.7 /root/.rbenv/versions/2.7.* /
+COPY --parents --from=ruby-3.0 /root/.rbenv/versions/3.0.* /
+COPY --parents --from=ruby-3.1 /root/.rbenv/versions/3.1.* /
+COPY --parents --from=ruby-3.2 /root/.rbenv/versions/3.2.* /
+COPY --parents --from=ruby-3.3 /root/.rbenv/versions/3.3.* /
+COPY --parents --from=ruby-3.4 /root/.rbenv/versions/3.4.* /
 
 # Probably not working with gems/bundler but who cares
-ENTRYPOINT ["/root/.rbenv/versions/3.4.1/bin/ruby", "/app/lib/cli.rb"]
-CMD ["--help"]
+ENTRYPOINT /root/.rbenv/versions/3.4.*/bin/ruby /app/lib/cli.rb
