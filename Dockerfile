@@ -42,7 +42,7 @@ FROM build-base AS ruby-3.1
 RUN ~/.rbenv/bin/rbenv install 3.1.6
 
 FROM build-base AS ruby-3.2
-RUN ~/.rbenv/bin/rbenv install 3.2.6
+RUN ~/.rbenv/bin/rbenv install 3.2.7
 
 FROM build-base AS ruby-3.3
 RUN ~/.rbenv/bin/rbenv install 3.3.7
@@ -63,7 +63,7 @@ COPY --from=ruby-2.6 /root/.rbenv/versions/2.6.10     /root/.rbenv/versions/2.6.
 COPY --from=ruby-2.7 /root/.rbenv/versions/2.7.8      /root/.rbenv/versions/2.7.8
 COPY --from=ruby-3.0 /root/.rbenv/versions/3.0.7      /root/.rbenv/versions/3.0.7
 COPY --from=ruby-3.1 /root/.rbenv/versions/3.1.6      /root/.rbenv/versions/3.1.6
-COPY --from=ruby-3.2 /root/.rbenv/versions/3.2.6      /root/.rbenv/versions/3.2.6
+COPY --from=ruby-3.2 /root/.rbenv/versions/3.2.7      /root/.rbenv/versions/3.2.7
 COPY --from=ruby-3.3 /root/.rbenv/versions/3.3.7      /root/.rbenv/versions/3.3.7
 COPY --from=ruby-3.4 /root/.rbenv/versions/3.4.1      /root/.rbenv/versions/3.4.1
 
