@@ -1,7 +1,7 @@
 require 'optparse'
 require 'open3'
 
-available_rubies = Dir.children("/root/.rbenv/versions").to_h do |full_version|
+available_rubies = Dir.glob("*.*.*", base: "/root/.rbenv/versions").to_h do |full_version|
   [full_version[0..2].to_f, full_version]
 end
 

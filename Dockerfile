@@ -68,5 +68,7 @@ COPY --parents --from=ruby-3.2 /root/.rbenv/versions/3.2.* /
 COPY --parents --from=ruby-3.3 /root/.rbenv/versions/3.3.* /
 COPY --parents --from=ruby-3.4 /root/.rbenv/versions/3.4.* /
 
+RUN ln -s /root/.rbenv/versions/3.4.* /root/.rbenv/versions/3.4
+
 # Probably not working with gems/bundler but who cares
-ENTRYPOINT /root/.rbenv/versions/3.4.*/bin/ruby /app/lib/cli.rb
+ENTRYPOINT ["/root/.rbenv/versions/3.4/bin/ruby", "/app/lib/cli.rb"]
