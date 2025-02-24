@@ -12,7 +12,6 @@
   ],
   "packageRules": [
     {
-      "matchDatasources": ["ruby-version"],
       "matchPackageNames": ["ruby"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
