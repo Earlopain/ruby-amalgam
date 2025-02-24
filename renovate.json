@@ -1,0 +1,21 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["rbenv install (?<currentValue>.+)"],
+      "depNameTemplate": "ruby",
+      "datasourceTemplate": "ruby-version"
+
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["ruby-version"],
+      "matchPackageNames": ["ruby"],
+      "matchUpdateTypes": ["major", "minor"],
+      "enabled": false
+    }
+  ]
+}
