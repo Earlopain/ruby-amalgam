@@ -35,7 +35,7 @@ FROM build-base AS ruby-2.6
 RUN ~/.rbenv/bin/rbenv install 2.6.10
 
 FROM build-base AS ruby-2.7
-RUN ~/.rbenv/bin/rbenv install 2.7.7
+RUN ~/.rbenv/bin/rbenv install 2.7.8
 
 FROM build-base AS ruby-3.0
 RUN ~/.rbenv/bin/rbenv install 3.0.7
