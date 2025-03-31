@@ -5,7 +5,7 @@
     {
       "customType": "regex",
       "fileMatch": ["Dockerfile"],
-      "matchStrings": ["rbenv install (?<currentValue>.+)"],
+      "matchStrings": ["rbenv install (?<currentValue>\\d+\\.\\d+\\.\\d+)\\n"],
       "depNameTemplate": "ruby",
       "datasourceTemplate": "ruby-version"
 
