@@ -14,7 +14,7 @@ RUN apt-get update \
 ENV RUBY_CONFIGURE_OPTS=--disable-install-doc
 
 FROM build-base AS ruby-2.0
-RUN ~/.rbenv/bin/rbenv install 2.0.0-p648
+RUN ~/.rbenv/bin/rbenv install 2.0.0
 
 FROM build-base AS ruby-2.1
 RUN ~/.rbenv/bin/rbenv install 2.1.10
