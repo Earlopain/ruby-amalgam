@@ -16,6 +16,10 @@
       "matchPackageNames": ["ruby"],
       "matchUpdateTypes": ["major", "minor"],
       "enabled": false
+    },
+    {
+      "matchPackageNames": ["ruby"],
+      "groupName": "ruby"
     }
   ]
 }
