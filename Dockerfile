@@ -47,7 +47,7 @@ FROM build-base AS ruby-3.2
 RUN ~/.rbenv/bin/rbenv install 3.2.8
 
 FROM build-base AS ruby-3.3
-RUN ~/.rbenv/bin/rbenv install 3.3.7
+RUN ~/.rbenv/bin/rbenv install 3.3.8
 
 FROM build-base AS ruby-3.4
 RUN ~/.rbenv/bin/rbenv install 3.4.2
