@@ -11,7 +11,6 @@ options = {}
 option_parser = OptionParser.new do |opt|
   opt.banner = "Usage: docker compose run amalgam [options] <command>"
 
-  # FIXME: do some validation
   opt.on('--all') { |o| options[:all] = true }
   opt.on('--start VERSION') { |o| options[:start] = o.to_f }
   opt.on('--stop VERSION') { |o| options[:stop] = o.to_f }
@@ -19,6 +18,11 @@ option_parser = OptionParser.new do |opt|
 end
 option_parser.parse!
 command = ARGV.first
+
+if ARGV.count != 1
+  puts option_parser
+  exit(1)
+end
 
 if options[:all]
   versions = available_rubies
