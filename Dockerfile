@@ -69,6 +69,5 @@ COPY --parents --from=ruby-3.3 /root/.rbenv/versions/3.3.* /
 COPY --parents --from=ruby-3.4 /root/.rbenv/versions/3.4.* /
 
 RUN ln -s /root/.rbenv/versions/3.4.* /root/.rbenv/versions/3.4
-RUN /root/.rbenv/bin/rbenv rehash
 
 ENTRYPOINT ["/root/.rbenv/versions/3.4/bin/ruby", "/app/lib/cli.rb"]

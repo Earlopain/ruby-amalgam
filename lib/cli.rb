@@ -39,10 +39,13 @@ end
 
 versions.keys.sort.each do |short_version|
   full_version = versions[short_version]
+  ruby_path = "/root/.rbenv/versions/#{full_version}"
+  gem_home = "/app/gems/#{full_version}"
+
   shell_env = {
     "BUNDLE_SILENCE_ROOT_WARNING" => "true",
-    "RBENV_VERSION" => full_version,
-    "PATH" => "/root/.rbenv/shims:#{ENV['PATH']}"
+    "GEM_HOME" => gem_home,
+    "PATH" => "#{ruby_path}/bin:#{gem_home}/bin:#{ENV['PATH']}"
   }
   puts full_version.center(41, "=")
   system(shell_env, command)
