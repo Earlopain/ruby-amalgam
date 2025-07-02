@@ -14,7 +14,7 @@ Usage: docker compose run amalgam [options] <command>
         --stop VERSION
         --only VERSION
 
-$ docker compose run amalgam --all 'ruby -ce "def foo(...) super(...) {} end"'
+$ docker compose run amalgam 'ruby -ce "def foo(...) super(...) {} end"'
 ===============2.0.0-p648================
 -e:1: syntax error, unexpected ..., expecting ')'
 def foo(...) super(...) {} end

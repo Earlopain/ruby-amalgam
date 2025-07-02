@@ -17,6 +17,7 @@ option_parser = OptionParser.new do |opt|
   opt.on('--only VERSION') { |o| options[:only] = o.to_f }
 end
 option_parser.parse!
+options[:all] = true if options.empty?
 command = ARGV.first
 
 if ARGV.count != 1
