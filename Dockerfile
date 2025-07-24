@@ -44,10 +44,10 @@ FROM build-base AS ruby-3.1
 RUN ~/.rbenv/bin/rbenv install 3.1.7
 
 FROM build-base AS ruby-3.2
-RUN ~/.rbenv/bin/rbenv install 3.2.8
+RUN ~/.rbenv/bin/rbenv install 3.2.9
 
 FROM build-base AS ruby-3.3
-RUN ~/.rbenv/bin/rbenv install 3.3.8
+RUN ~/.rbenv/bin/rbenv install 3.3.9
 
 FROM build-base AS ruby-3.4
 RUN ~/.rbenv/bin/rbenv install 3.4.5
