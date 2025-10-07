@@ -50,7 +50,7 @@ FROM build-base AS ruby-3.3
 RUN ~/.rbenv/bin/rbenv install 3.3.9
 
 FROM build-base AS ruby-3.4
-RUN ~/.rbenv/bin/rbenv install 3.4.6
+RUN ~/.rbenv/bin/rbenv install 3.4.7
 
 FROM build-base
 
