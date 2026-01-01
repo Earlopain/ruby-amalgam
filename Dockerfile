@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:labs
 
-FROM debian:bookworm-slim AS build-base
+FROM debian:trixie-slim AS build-base
 
 RUN apt-get update \
   && apt-get install -y git curl \
@@ -20,6 +20,7 @@ FROM build-base AS ruby-2.1
 RUN ~/.rbenv/bin/rbenv install 2.1.10
 
 FROM build-base AS ruby-2.2
+ENV CFLAGS=-Wno-error=implicit-function-declaration
 RUN ~/.rbenv/bin/rbenv install 2.2.10
 
 FROM build-base AS ruby-2.3
