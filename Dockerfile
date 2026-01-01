@@ -52,6 +52,9 @@ RUN ~/.rbenv/bin/rbenv install 3.3.10
 FROM build-base AS ruby-3.4
 RUN ~/.rbenv/bin/rbenv install 3.4.8
 
+FROM build-base AS ruby-4.0
+RUN ~/.rbenv/bin/rbenv install 4.0.0
+
 FROM build-base
 
 COPY --parents --from=ruby-2.0 /root/.rbenv/versions/2.0.* /
@@ -67,7 +70,8 @@ COPY --parents --from=ruby-3.1 /root/.rbenv/versions/3.1.* /
 COPY --parents --from=ruby-3.2 /root/.rbenv/versions/3.2.* /
 COPY --parents --from=ruby-3.3 /root/.rbenv/versions/3.3.* /
 COPY --parents --from=ruby-3.4 /root/.rbenv/versions/3.4.* /
+COPY --parents --from=ruby-4.0 /root/.rbenv/versions/4.0.* /
 
-RUN ln -s /root/.rbenv/versions/3.4.* /root/.rbenv/versions/3.4
+RUN ln -s /root/.rbenv/versions/4.0.* /root/.rbenv/versions/4.0
 
-ENTRYPOINT ["/root/.rbenv/versions/3.4/bin/ruby", "/app/lib/cli.rb"]
+ENTRYPOINT ["/root/.rbenv/versions/4.0/bin/ruby", "/app/lib/cli.rb"]
