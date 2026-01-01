@@ -5,7 +5,7 @@ FROM debian:trixie-slim AS build-base
 RUN apt-get update \
   && apt-get install -y git curl \
   # https://github.com/rbenv/ruby-build/wiki#ubuntudebianmint
-  build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev \
+  build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libgmp-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev rustc \
   && rm -rf /var/lib/apt/lists/* \
   && git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
   && ~/.rbenv/bin/rbenv init \
@@ -42,19 +42,19 @@ FROM build-base AS ruby-3.0
 RUN ~/.rbenv/bin/rbenv install 3.0.7
 
 FROM build-base AS ruby-3.1
-RUN ~/.rbenv/bin/rbenv install 3.1.7
+RUN ~/.rbenv/bin/rbenv install 3.1.7 -- --enable-yjit
 
 FROM build-base AS ruby-3.2
-RUN ~/.rbenv/bin/rbenv install 3.2.9
+RUN ~/.rbenv/bin/rbenv install 3.2.9 -- --enable-yjit
 
 FROM build-base AS ruby-3.3
-RUN ~/.rbenv/bin/rbenv install 3.3.10
+RUN ~/.rbenv/bin/rbenv install 3.3.10 -- --enable-yjit
 
 FROM build-base AS ruby-3.4
-RUN ~/.rbenv/bin/rbenv install 3.4.8
+RUN ~/.rbenv/bin/rbenv install 3.4.8 -- --enable-yjit
 
 FROM build-base AS ruby-4.0
-RUN ~/.rbenv/bin/rbenv install 4.0.0
+RUN ~/.rbenv/bin/rbenv install 4.0.0 -- --enable-yjit --enable-zjit
 
 FROM build-base
 
