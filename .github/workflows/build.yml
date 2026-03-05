@@ -32,7 +32,7 @@ jobs:
           password: ${{ github.token }}
 
       - name: Generate Docker tags
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         id: metadata
         with:
           images: ghcr.io/${{ github.repository }}
