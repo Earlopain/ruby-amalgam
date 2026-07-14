@@ -54,7 +54,7 @@ FROM build-base AS ruby-3.4
 RUN ~/.rbenv/bin/rbenv install 3.4.10 -- --enable-yjit
 
 FROM build-base AS ruby-4.0
-RUN ~/.rbenv/bin/rbenv install 4.0.5 -- --enable-yjit --enable-zjit
+RUN ~/.rbenv/bin/rbenv install 4.0.6 -- --enable-yjit --enable-zjit
 
 FROM build-base
 
