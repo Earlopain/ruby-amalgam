@@ -48,7 +48,7 @@ FROM build-base AS ruby-3.2
 RUN ~/.rbenv/bin/rbenv install 3.2.11 -- --enable-yjit
 
 FROM build-base AS ruby-3.3
-RUN ~/.rbenv/bin/rbenv install 3.3.11 -- --enable-yjit
+RUN ~/.rbenv/bin/rbenv install 3.3.12 -- --enable-yjit
 
 FROM build-base AS ruby-3.4
 RUN ~/.rbenv/bin/rbenv install 3.4.10 -- --enable-yjit
